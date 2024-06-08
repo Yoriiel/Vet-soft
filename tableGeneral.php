@@ -85,11 +85,11 @@
                                 <div class="left">
                                     <?php
                                     // Consulta SQL para obtener los datos del expediente del paciente basado en la cédula
-                                    if (isset($_GET['cedula'])) {
-                                        $cedula = $_GET['cedula'];
-                                        $sql_expediente = "SELECT `cedula`, `nombre`, `apellido`, `correo`, `telefono`, `fechaDeNacimiento`, `genero` FROM `paciente-expediente` WHERE cedula = ?";
+                                    if (isset($_GET['id_mascota'])) {
+                                        $id_mascota = $_GET['id_mascota'];
+                                        $sql_expediente = "SELECT `id_mascota`,`nombreMascota`,`duenoMascota`, `cedula`, `edadMascota`, `fechaNacimientoMascota`, `sexoMascota` FROM `paciente-expediente` WHERE id_mascota = ?";
                                         $stmt_expediente = $conn->prepare($sql_expediente);
-                                        $stmt_expediente->bind_param("s", $cedula);
+                                        $stmt_expediente->bind_param("i", $id_mascota);
                                         $stmt_expediente->execute();
                                         $result_expediente = $stmt_expediente->get_result();
                                     }
@@ -105,32 +105,28 @@
                                                 echo "<strong>Datos Generales</strong>";
                                                 while ($row_expediente = $result_expediente->fetch_assoc()) {
                                                     echo "<tr>";
-                                                    echo "<th>Cédula</th>";
-                                                    echo "<td>" . $row_expediente["cedula"] . "</td>";
+                                                    echo "<th>id_mascota</th>";
+                                                    echo "<td>" . $row_expediente["id_mascota"] . "</td>";
                                                     echo "</tr>";
                                                     echo "<tr>";
-                                                    echo "<th>Nombre</th>";
-                                                    echo "<td>" . $row_expediente["nombre"] . "</td>";
+                                                    echo "<th>Nombre de la mascota</th>";
+                                                    echo "<td>" . $row_expediente["nombreMascota"] . "</td>";
                                                     echo "</tr>";
                                                     echo "<tr>";
-                                                    echo "<th>Apellido</th>";
-                                                    echo "<td>" . $row_expediente["apellido"] . "</td>";
+                                                    echo "<th>Dueño de la mascota</th>";
+                                                    echo "<td>" . $row_expediente["duenoMascota"] . "</td>";
                                                     echo "</tr>";
                                                     echo "<tr>";
                                                     echo "<th>Sexo</th>";
-                                                    echo "<td>" . $row_expediente["genero"] . "</td>";
+                                                    echo "<td>" . $row_expediente["sexoMascota"] . "</td>";
                                                     echo "</tr>";
                                                     echo "<tr>";
-                                                    echo "<th>Correo Electrónico</th>";
-                                                    echo "<td>" . $row_expediente["correo"] . "</td>";
-                                                    echo "</tr>";
-                                                    echo "<tr>";
-                                                    echo "<th>Teléfono</th>";
-                                                    echo "<td>" . $row_expediente["telefono"] . "</td>";
+                                                    echo "<th>Edad</th>";
+                                                    echo "<td>" . $row_expediente["edadMascota"] . "</td>";
                                                     echo "</tr>";
                                                     echo "<tr>";
                                                     echo "<th>Fecha de Nacimiento</th>";
-                                                    echo "<td>" . $row_expediente["fechaDeNacimiento"] . "</td>";
+                                                    echo "<td>" . $row_expediente["fechaNacimientoMascota"] . "</td>";
                                                     echo "</tr>";
                                                     
                                                    
@@ -143,11 +139,11 @@
                                 <div class="right">
                                     <?php
                                     // Consulta SQL para obtener los datos de las visitas de los pacientes según el médico seleccionado
-                                    if (isset($_GET['cedula'])) {
-                                        $cedula = $_GET['cedula'];
-                                        $sql_visitas = "SELECT fecha, motivo, síntomas, diagnóstico,id_visita FROM `paciente-visitas` WHERE cedula = ?";
+                                    if (isset($_GET['id_mascota'])) {
+                                        $id_mascota = $_GET['id_mascota'];
+                                        $sql_visitas = "SELECT fecha, motivo, síntomas, diagnóstico,id_visita FROM `paciente-visitas` WHERE id_mascota = ?";
                                         $stmt_visitas = $conn->prepare($sql_visitas);
-                                        $stmt_visitas->bind_param("s", $cedula);
+                                        $stmt_visitas->bind_param("i", $id_mascota);
                                         $stmt_visitas->execute();
                                         $result_visitas = $stmt_visitas->get_result();
                                     }

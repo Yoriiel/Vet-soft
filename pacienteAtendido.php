@@ -12,13 +12,13 @@ if (!isset($_SESSION['email'])) {
 <?php
 
 include 'conexion.php';
-if (isset($_GET['cedula'])) {
+if (isset($_GET['id_mascota'])) {
 
-    $cedula = $_GET['cedula'];
+    $id_mascota = $_GET['id_mascota'];
     $statuss = 1; // Cambié esto para usar una variable en lugar de un valor directo
-    $sql_statuss = "UPDATE `paciente-visitas` SET statuss = ? WHERE cedula = ?";
+    $sql_statuss = "UPDATE `paciente-visitas` SET statuss = ? WHERE id_mascota = ?";
     $stmt_statuss = $conn->prepare($sql_statuss);
-    $stmt_statuss->bind_param("is", $statuss, $cedula); // 'i' para entero, 's' para cadena
+    $stmt_statuss->bind_param("ii", $statuss, $id_mascota); // 'i' para entero, 's' para cadena
     $stmt_statuss->execute();
 
     header("Location: table.php");

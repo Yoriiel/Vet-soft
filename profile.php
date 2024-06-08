@@ -37,9 +37,7 @@
                 <!--menu horizontal inicia-->
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
-                        <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="¿Que buscas?"><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
-                        </form>
+      
                         <ul class="navbar-nav flex-nowrap ms-auto">
                             <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="fas fa-search"></i></a>
                                 <div class="dropdown-menu dropdown-menu-end p-3 animated--grow-in" aria-labelledby="searchDropdown">
@@ -121,7 +119,7 @@ $stmt_update->execute();
                                 <div class="col">
                                     <div class="card shadow mb-3">
                                         <div class="card-header py-3">
-                                            <p class="text-primary m-0 fw-bold <?php echo $_SESSION['role'] !== 'medico' ? 'hidden' : ''; ?>">Datos del Doctor </p>
+                                            <p class="text-primary m-0 fw-bold <?php echo $_SESSION['role'] !== 'medico' ? 'hidden' : ''; ?>">Datos del Doctor Veterinario </p>
                                             <p class="text-primary m-0 fw-bold <?php echo $_SESSION['role'] !== 'secretaria' ? 'hidden' : ''; ?>">Datos de la Secretaria</p>
                                         </div>
                                         
@@ -156,7 +154,7 @@ $stmt_update->execute();
             </div>
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
-                    <div class="text-center my-auto copyright"><span>Copyright © Brand 2024</span></div>
+                    <div class="text-center my-auto copyright"><span>Copyright © Vet_Soft 2024</span></div>
                 </div>
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>

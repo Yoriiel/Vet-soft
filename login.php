@@ -26,7 +26,7 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h4 class="text-dark mb-4">Bienvenido a Medical-Soft!</h4>
+                                        <h4 class="text-dark mb-4">Bienvenido a Vet-Soft!</h4>
                                     </div>
                                     <form class="user" method="POST" action="login-validation.php">
                                         <div class="mb-3"><input class="form-control form-control-user" type="text" id="email" aria-describedby="emailHelp" placeholder="Coloque su correo" name="email" required></div>

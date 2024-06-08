@@ -55,7 +55,7 @@ if (!isset($_SESSION['email'])) {
 
                 // Consulta SQL para obtener los datos de los pacientes visitas según el médico seleccionado
                 
-                $sql = "SELECT nombre, apellido, cedula, motivo, fecha, statuss, id_visita FROM `paciente-visitas` WHERE id_user = ?";
+                $sql = "SELECT nombreMascota, id_mascota, nombreDueno, cedula, motivo, fecha, statuss, id_visita FROM `paciente-visitas` WHERE id_user = ?";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("i", $medico_id);
                 $stmt->execute();
@@ -81,7 +81,7 @@ if (!isset($_SESSION['email'])) {
 
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 fw-bold">Pacientes por atender <?php include 'fecha.php';
+                            <p class="text-primary m-0 fw-bold">Mascotas por atender <?php include 'fecha.php';
                                                                                         echo $fecha; ?></p>
                         </div>
                         <?php if ($_SESSION['role'] == 'secretaria') : ?>
@@ -115,7 +115,7 @@ if (!isset($_SESSION['email'])) {
                                             <!--form para nueva consulta-->
                                             <form action="" class="d-flex gap-2" method="post">
                                                 <select id="paciente_id" name="medico" class="form-select">
-                                                    <option>Selecciona Médico</option>
+                                                    <option>Selecciona Médico Veterinario</option>
 
                  <?php
                     include 'conexion.php';
@@ -170,10 +170,8 @@ if (!isset($_SESSION['email'])) {
                                     <table class="table my-0" id="dataTable">
                                         <thead>
                                             <tr>
-                                                
-                                                <th>Nombre</th>
-                                                <th>Apellido</th>
-                                                <th>Cédula</th>
+                                                <th>Mascota</th>
+                                                <th>Dueño</th>
                                                 <th>Fecha</th>
                                             </tr>
                                         </thead>
@@ -185,7 +183,7 @@ if (!isset($_SESSION['email'])) {
                                                 while ($row = $result->fetch_assoc()) {
                                                     if ($row["statuss"] == 0) {
                                                        
-                                                        echo "<td>" . $row["nombre"] . "</td><td>" . $row["apellido"] . "</td><td>" . $row["cedula"] . "</td><td>" . $row["fecha"] . "</td>";
+                                                        echo "<td>" . $row["nombreMascota"] . "</td><td>" . $row["nombreDueno"] . "</td><td>" . $row["fecha"] . "</td>";
                                                         
                                                         echo "</tr>";
                                                     }
@@ -206,9 +204,8 @@ if (!isset($_SESSION['email'])) {
                                     <thead>
                                         <tr>
                                             <th>Status</th>
-                                            <th>Nombre</th>
-                                            <th>Apellido</th>
-                                            <th>Cédula</th>
+                                            <th>Mascota</th>
+                                            <th>Dueño</th>
                                             <th>Motivo</th>
                                             <th>Fecha</th>
                                         </tr>
@@ -220,9 +217,9 @@ if (!isset($_SESSION['email'])) {
                                             // muestra los datos de la bd
                                             while ($row = $result->fetch_assoc()) {
                                                 if ($row["statuss"] == 0) {
-                                                    echo '<tr><td><a href="pacienteAtendido.php?cedula=' . $row["cedula"] . '" class="btn btn-primary btn-sm">Atendido</a></td>';
-                                                    echo "<td>" . $row["nombre"] . "</td><td>" . $row["apellido"] . "</td><td>" . $row["cedula"] . "</td><td>" . $row["motivo"] . "</td><td>" . $row["fecha"] . "</td>";
-                                                    echo '<td><a href="tableGeneral.php?cedula=' . $row["cedula"] . '&id_visita=' . $row["id_visita"] . '" class="btn btn-primary btn-sm">Ver Expediente</a></td>';
+                                                    echo '<tr><td><a href="pacienteAtendido.php?id_mascota=' . $row["id_mascota"] . '" class="btn btn-primary btn-sm">Atendido</a></td>';
+                                                    echo "<td>" . $row["nombreMascota"] . "</td><td>" . $row["nombreDueno"] . "</td><td>" . $row["motivo"] . "</td><td>" . $row["fecha"] . "</td>";
+                                                    echo '<td><a href="tableGeneral.php?id_mascota=' . $row["id_mascota"] . '&id_visita=' . $row["id_visita"] . '" class="btn btn-primary btn-sm">Ver Expediente</a></td>';
                                                     echo "</tr>";
                                                 }
                                             }

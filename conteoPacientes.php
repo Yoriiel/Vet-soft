@@ -80,7 +80,7 @@
                                     <div class="card-body">
                                         <div class="row align-items-center no-gutters">
                                             <div class="col me-2">
-                                                <div class="text-uppercase text-info fw-bold text-xs mb-1"><span>Pacientes por atender</span></div>
+                                                <div class="text-uppercase text-info fw-bold text-xs mb-1"><span>Mascotas por atender</span></div>
                                                 <!-- Mostrar la cantidad de pacientes por atender-->
                                                 <?php echo '<div class="text-dark fw-bold h5 mb-0"><span>' . $total_pacientes . '</span></div>'; ?>
                                             </div>
@@ -96,7 +96,7 @@
                                     <div class="card-body">
                                         <div class="row align-items-center no-gutters">
                                             <div class="col me-2">
-                                                <div class="text-uppercase text-info fw-bold text-xs mb-1"><span>Pacientes Atendidos</span></div>
+                                                <div class="text-uppercase text-info fw-bold text-xs mb-1"><span>Mascotas Atendidas</span></div>
                                                 <!-- Mostrar la cantidad de pacientes por atender-->
                                                 <?php echo '<div class="text-dark fw-bold h5 mb-0"><span>' . $total_pacientes1 . '</span></div>'; ?>
                                             </div>
