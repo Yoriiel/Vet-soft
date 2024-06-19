@@ -66,8 +66,6 @@ if (!isset($_SESSION['email'])) {
                                             $stmt_clin->execute();
                                             $stmt_clin->bind_result($clinics);
                                             $stmt_clin->fetch();
-                        
-                                    
                                             $stmt_clin->close();
 
                                             
@@ -87,17 +85,9 @@ if (!isset($_SESSION['email'])) {
 
                                             }
                                             $stmt->close(); 
-                                    
+                                            
                                         ?>
                                     </select>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
-                                    <label class="form-check-label" for="disabledFieldsetCheck">
-                                        Can't check this
-                                    </label>
-                                    </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Generar</button>
                                 </fieldset>

@@ -1,7 +1,13 @@
-
-
 <!DOCTYPE html>
 <html>
+
+<?php
+include 'conexion.php';
+// Verificar si la actualización fue exitosa y mostrar la ventana emergente
+if (isset($_GET['update_success']) && $_GET['update_success'] == "true") {
+    echo "<script>alert('No se encontró el paciente en la base de datos');</script>";
+}
+?>
 
 <?php
 session_start();
@@ -11,42 +17,43 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
-    include'header.php';
+include 'header.php';
 ?>
 
 
-                            <!-- Usuario-->
-                            <?php
-                                include 'conexion.php';
 
-                                // Suponiendo que tengas el ID del usuario almacenado en alguna variable
-                                $user_id = $_SESSION['id']; // Por ejemplo, supongamos que almacenaste el ID del usuario en una variable de sesión
+<!-- Usuario-->
+<?php
+include 'conexion.php';
 
-                                // Consulta SQL para obtener el nombre completo del usuario
-                                $sql = "SELECT firstname, lastname FROM users WHERE id_user = ?"; // Ajusta la consulta según la estructura de tu base de datos
-                                $stmt = $conn->prepare($sql);
-                                $stmt->bind_param("i", $user_id);
-                                $stmt->execute();
-                                $stmt->bind_result($firstName, $lastName);
-                                $stmt->fetch();
+// Suponiendo que tengas el ID del usuario almacenado en alguna variable
+$user_id = $_SESSION['id']; // Por ejemplo, supongamos que almacenaste el ID del usuario en una variable de sesión
 
-                                // Concatenar el nombre completo
-                                $fullName = $firstName . " " . $lastName;
+// Consulta SQL para obtener el nombre completo del usuario
+$sql = "SELECT firstname, lastname FROM users WHERE id_user = ?"; // Ajusta la consulta según la estructura de tu base de datos
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$stmt->bind_result($firstName, $lastName);
+$stmt->fetch();
 
-                                // Cerrar la conexión y liberar recursos
-                                $stmt->close();
-                                $conn->close();
-                            ?>
+// Concatenar el nombre completo
+$fullName = $firstName . " " . $lastName;
+
+// Cerrar la conexión y liberar recursos
+$stmt->close();
+$conn->close();
+?>
 
 <body id="page-top">
     <div id="wrapper">
-    <?php include('menu_v.php'); ?>
+        <?php include('menu_v.php'); ?>
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
-                
+
                 <!--menu horizontal inicia-->
-                <?php 
-                    include 'barra.php';
+                <?php
+                include 'barra.php';
                 ?>
                 <!--menu horizontal termina-->
 
@@ -75,7 +82,7 @@ if (!isset($_SESSION['email'])) {
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
-                                        <div>
+                                            <div>
                                                 <a href="nuevoPacienteForm.php" class="btn btn-primary">Nuevo Paciente</a>
                                             </div>
                                         </div>
@@ -84,7 +91,7 @@ if (!isset($_SESSION['email'])) {
                                 </div>
                             </div>
                         </div>
-                     <!--   <div class="col-md-6 col-xl-3 mb-4">
+                        <!--   <div class="col-md-6 col-xl-3 mb-4">
                             <div class="card shadow border-start-info py-2">
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
@@ -98,7 +105,7 @@ if (!isset($_SESSION['email'])) {
                                 </div>
                             </div>
                         </div> -->
-                    
+
                     </div>
                     <!--Aqui terminan los botones de las actividades de la secretaria-->
                     <div class="row">
@@ -109,11 +116,11 @@ if (!isset($_SESSION['email'])) {
                         </div>
                         <div class="col-lg-5 col-xl-4">
                             <div class="card shadow mb-4">
-                                
+
                             </div>
                         </div>
                     </div>
-            <!--    <div class="row">
+                    <!--    <div class="row">
                         <div class="col-lg-6 mb-4"></div>
                         <div class="col">
                             <div class="row">
@@ -169,7 +176,7 @@ if (!isset($_SESSION['email'])) {
                         </div>
                     </div>  -->
                     <?php
-                                        include 'conteoPacientes.php';
+                    include 'conteoPacientes.php';
                     ?>
                 </div>
             </div>

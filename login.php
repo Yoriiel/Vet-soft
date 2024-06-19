@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
     <link rel="icon" href="assets/img/avatars/avatar6.jpeg" sizes="16x16" type="image/png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="bg-gradient-primary">
@@ -21,12 +24,12 @@
                     <div class="card-body p-0">
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-flex">
-                                <div class="flex-grow-1 bg-login-image" style="background-image: url(&quot;assets/img/dogs/image3.jpeg&quot;);"></div>
+                                <div class="flex-grow-1 bg-login-image" style="background-image: url(&quot;assets/img/dogs/image3.jpg&quot;);"></div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h4 class="text-dark mb-4">Bienvenido a Vet-Soft!</h4>
+                                        <h4 class="text-dark mb-4">Bienvenido a Medical-Soft!</h4>
                                     </div>
                                     <form class="user" method="POST" action="login-validation.php">
                                         <div class="mb-3"><input class="form-control form-control-user" type="text" id="email" aria-describedby="emailHelp" placeholder="Coloque su correo" name="email" required></div>

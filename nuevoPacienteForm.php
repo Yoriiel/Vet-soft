@@ -22,7 +22,7 @@
    
     // Verificar si la actualización fue exitosa y mostrar la ventana emergente
     if (isset($_GET['update_success']) && $_GET['update_success'] == "true") {
-        echo "<script>alert('Datos actualizados correctamente.');</script>";
+        echo "<script>alert('Datos insertados correctamente.');</script>";
     }
     ?>
 
