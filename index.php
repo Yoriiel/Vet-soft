@@ -60,7 +60,7 @@
                                 <div class="col">
                                     <div class="card shadow mb-3">
                                         <div class="card-header py-3">
-                                            <p class="text-primary m-0 fw-bold">Datos de <?php echo $_SESSION['role']; ?></p>
+                                            <p class=" m-0 fw-bold" style="color: #228B22">Datos de <?php echo $_SESSION['role']; ?></p>
                                         </div>
 
                                         <?php

@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body class="bg-gradient-primary">
+<body style="background: linear-gradient(0deg, #1A661A, #228B22)";>
     <?php
     include 'conexion.php';
 
@@ -89,7 +89,7 @@
             <div class="card-body p-0">
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-flex">
-                        <div class="flex-grow-1 bg-register-image" style="background-image: url(&quot;assets/img/dogs/image2.jpg&quot;);"></div>
+                        <div class="flex-grow-1 bg-register-image" style="background-image: url(&quot;assets/img/dogs/image3.jpg&quot;);"></div>
                     </div>
                     <div class="col-lg-7">
                         <div class="p-5">
@@ -105,7 +105,7 @@
                                 <div class="row mb-3">
                                     <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" id="examplePasswordInput" placeholder="Contraseña" name="password" required></div>
                                     <div class="col-sm-6"><input class="form-control form-control-user" type="password" id="exampleRepeatPasswordInput" placeholder="Repetir Contraseña" name="password_repeat" required></div>
-                                </div><button class="btn btn-primary d-block btn-user w-100" type="submit">Crear cuenta</button>
+                                </div><button class="btn btn-primary d-block btn-user w-100" style="background-color: #228B22; color: white;" type="submit">Crear cuenta</button>
                             </form>
                             <div class="text-center"><a class="small" href="forgot-password.html">Olvidaste la contraseña?</a></div>
                             <div class="text-center"><a class="small" href="login.php">Ya tienes una cuenta? Inicia sesión!</a></div>

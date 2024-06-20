@@ -149,7 +149,7 @@ include 'header.php';
                             <form method="post" enctype="multipart/form-data">
                                 <div class="card mb-3">
                                     <div class="card-body text-center shadow"><img src="data:image/webp;base64,<?php echo base64_encode($imagenp); ?>" alt="Imagen" width="160" height="160">
-                                        <div class="mb-3"><input type="file" name="imagen" accept="image/*"><button class="btn btn-primary btn-sm" type="submit">Cambiar foto</button></div>
+                                        <div class="mb-3"><input type="file" name="imagen" accept="image/*"><button class="btn btn-sm" style="background-color:#228B22; color: white" type="submit">Cambiar foto</button></div>
                                     </div>
                                 </div>
                             </form>
@@ -159,8 +159,8 @@ include 'header.php';
                                 <div class="col">
                                     <div class="card shadow mb-3">
                                         <div class="card-header py-3">
-                                            <p class="text-primary m-0 fw-bold <?php echo $_SESSION['role'] !== 'medico' ? 'hidden' : ''; ?>">Datos del Doctor </p>
-                                            <p class="text-primary m-0 fw-bold <?php echo $_SESSION['role'] !== 'secretaria' ? 'hidden' : ''; ?>">Datos de la Secretaria</p>
+                                            <p class=" m-0 fw-bold <?php echo $_SESSION['role'] !== 'medico' ? 'hidden' : ''; ?>" style="color: #228B22" >Datos del Doctor </p>
+                                            <p class="m-0 fw-bold <?php echo $_SESSION['role'] !== 'secretaria' ? 'hidden' : ''; ?>" style="color: #228B22" >Datos de la Secretaria</p>
                                         </div>
 
 
@@ -182,7 +182,7 @@ include 'header.php';
                                                         <div class="mb-3"><label class="form-label" for="last_name"><strong>Apellido</strong></label><input class="form-control" type="text" id="last_name" placeholder="<?php echo $lastName; ?>" name="last_name"></div>
                                                     </div>
                                                 </div>
-                                                <div class="mb-3"><button class="btn btn-primary btn-sm" type="submit">Actualizar Datos</button></div>
+                                                <div class="mb-3"><button class="btn btn-sm" style="background-color:#228B22; color: white" type="submit">Actualizar Datos</button></div>
                                             </form>
                                         </div>
                                     </div>

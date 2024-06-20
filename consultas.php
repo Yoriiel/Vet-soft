@@ -66,14 +66,14 @@ $conn->close();
                         <div class="col-md-6 col-xl-3 mb-4">
                             <div class="card shadow border-start-warning py-2">
                                 <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col me-2">
-                                            <div>
-                                                <a href="consultaForm.php" class="btn btn-primary">Nueva Consulta</a>
-                                            </div>
+                                    <h5 class="card-title">Nueva Consulta</h5>
+                                    <form action="consultaForm.php" method="POST">
+                                        <div class="form-group">
+                                            <label for="cedulaPropietario">Cédula del Propietario</label>
+                                            <input type="text" class="form-control mt-3" id="cedulaPropietario" name="cedulaPropietario" placeholder="00-000-000">
                                         </div>
-                                        <div class="col-auto"><i class="fas fa-user-friends fa-2x text-gray-300"></i></div>
-                                    </div>
+                                        <button type="submit" class="btn mt-3" style="background-color:#228B22; color: white">Buscar Mascota</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +83,7 @@ $conn->close();
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
                                             <div>
-                                                <a href="nuevoPacienteForm.php" class="btn btn-primary">Nuevo Paciente</a>
+                                                <a href="nuevoPacienteForm.php" class="btn" style="background-color:#228B22; color: white">Nuevo Paciente</a>
                                             </div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-user-friends fa-2x text-gray-300"></i></div>

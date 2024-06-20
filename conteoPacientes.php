@@ -53,7 +53,7 @@ $stmt_pacientes_atendidos->close();
                     <div class="card-body">
                         <div class="row align-items-center no-gutters">
                             <div class="col me-2">
-                                <div class="text-uppercase text-info fw-bold text-xs mb-1"><span>Pacientes por atender</span></div>
+                                <div class="text-uppercase fw-bold text-xs mb-1" style="color: #228B22"><span>Pacientes por atender</span></div>
                                 <!-- Mostrar la cantidad de pacientes por atender -->
                                 <?php echo '<div class="text-dark fw-bold h5 mb-0"><span>' . $total_pacientes . '</span></div>'; ?>
                             </div>
@@ -69,7 +69,7 @@ $stmt_pacientes_atendidos->close();
                 <div class="card-body">
                     <div class="row align-items-center no-gutters">
                         <div class="col me-2">
-                            <div class="text-uppercase text-info fw-bold text-xs mb-1"><span>Pacientes Atendidos</span></div>
+                            <div class="text-uppercase fw-bold text-xs mb-1" style="color: #228B22"><span>Pacientes Atendidos</span></div>
                             <!-- Mostrar la cantidad de pacientes atendidos -->
                             <?php echo '<div class="text-dark fw-bold h5 mb-0"><span>' . $total_pacientes1 . '</span></div>'; ?>
                         </div>
@@ -88,7 +88,7 @@ $stmt_pacientes_atendidos->close();
                 <div class="card-body">
                     <div class="row align-items-center no-gutters">
                         <div class="col me-2">
-                            <div class="text-uppercase text-info fw-bold text-xs mb-1"><span>Consultas sin Atender</span></div>
+                            <div class="text-uppercase  fw-bold text-xs mb-1" style="color: #228B22"><span>Consultas sin Atender</span></div>
                             <!-- Mostrar la cantidad de pacientes sin atender -->
                             <?php echo '<div class="text-dark fw-bold h5 mb-0"><span>' . $total_pacientes . '</span></div>'; ?>
                         </div>
@@ -103,7 +103,7 @@ $stmt_pacientes_atendidos->close();
                 <div class="card-body">
                     <div class="row align-items-center no-gutters">
                         <div class="col me-2">
-                            <div class="text-uppercase text-info fw-bold text-xs mb-1"><span>Consultas Atendidas</span></div>
+                            <div class="text-uppercase  fw-bold text-xs mb-1" style="color: #228B22"><span>Consultas Atendidas</span></div>
                             <!-- Mostrar la cantidad de pacientes atendidos -->
                             <?php echo '<div class="text-dark fw-bold h5 mb-0"><span>' . $total_pacientes1 . '</span></div>'; ?>
                         </div>

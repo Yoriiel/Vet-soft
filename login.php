@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body class="bg-gradient-primary">
+<body style="background: linear-gradient(0deg, #1A661A, #228B22)";>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-9 col-lg-12 col-xl-10">
@@ -24,12 +24,12 @@
                     <div class="card-body p-0">
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-flex">
-                                <div class="flex-grow-1 bg-login-image" style="background-image: url(&quot;assets/img/dogs/image3.jpg&quot;);"></div>
+                                <div class="flex-grow-1 bg-login-image" style="background-image: url(&quot;assets/img/dogs/image2.jpg&quot;);"></div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h4 class="text-dark mb-4">Bienvenido a Medical-Soft!</h4>
+                                        <h4 class="text-dark mb-4">¡Bienvenido a Vet-Soft!</h4>
                                     </div>
                                     <form class="user" method="POST" action="login-validation.php">
                                         <div class="mb-3"><input class="form-control form-control-user" type="text" id="email" aria-describedby="emailHelp" placeholder="Coloque su correo" name="email" required></div>
@@ -38,7 +38,7 @@
                                             <div class="custom-control custom-checkbox small">
                                                 <div class="form-check"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label" for="formCheck-1">Recordar correo</label></div>
                                             </div>
-                                        </div><button class="btn btn-primary d-block btn-user w-100" type="submit">Acceder</button>
+                                        </div><button class="btn d-block btn-user w-100" style="background-color: #228B22; color: white;" type="submit">Acceder</button>
                                     </form>
                                     <div class="text-center"><a class="small" href="forgot-password.html">Olvidaste la contraseña?</a></div>
                                     <div class="text-center"><a class="small" href="register.php">Crea una cuenta</a></div>

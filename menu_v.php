@@ -1,10 +1,10 @@
         <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
        
        <!--menu vertical inicia Actualizado -->
-        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+        <nav class="navbar align-items-start sidebar sidebar-dark accordion p-0" style="background: linear-gradient(0deg, #1A661A, #228B22)";>
             <div class="container-fluid d-flex flex-column p-0"><a href="index.php" class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
-                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-briefcase-medical"></i></div>
-                    <div class="sidebar-brand-text mx-3"><span>MedicalSoft</span></div>
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-paw"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>Vet-Soft</span></div>
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">

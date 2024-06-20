@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_doctor = $_POST['iden'];
 
     // Consulta preparada para seleccionar datos del paciente
-    $stmt_select = $conn->prepare("SELECT id_paciente, nombre, apellido FROM paciente WHERE cedula = ?");
+    $stmt_select = $conn->prepare("SELECT id_paciente, nombre, propietario FROM paciente WHERE cedula = ?");
     $stmt_select->bind_param("s", $cedula_paciente);
     $stmt_select->execute();
     $stmt_select->bind_result($id_paciente, $nombre, $apellido);
@@ -35,8 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($id_paciente != null) {
         // Consulta preparada para insertar datos en paciente-visitas
         $fecha_hoy =   //inserta fecha de hoy
-            $stmt_insert = $conn->prepare("INSERT INTO `paciente-visitas` (id_paciente, nombre, apellido, cedula, id_user,fecha) VALUES (?, ?, ?, ?, ?, CURDATE())");
-        $stmt_insert->bind_param("sssss", $id_paciente, $nombre, $apellido, $cedula_paciente, $id_doctor);
+            $stmt_insert = $conn->prepare("INSERT INTO `paciente-visitas` (id_paciente, nombre, propietario, cedula, id_user,fecha) VALUES (?, ?, ?, ?, ?, CURDATE())");
+        $stmt_insert->bind_param("sssss", $id_paciente, $nombre, $propietario, $cedula_paciente, $id_doctor);
 
         if ($stmt_insert->execute()) {
             $stmt_insert->close();

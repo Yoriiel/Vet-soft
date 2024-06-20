@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 
@@ -11,7 +9,7 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
-    include'header.php';
+include 'header.php';
 ?>
 
 <body id="page-top">
@@ -22,10 +20,10 @@ if (!isset($_SESSION['email'])) {
 
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
-                
+
                 <!--menu horizontal inicia-->
-                <?php 
-                    include 'barra.php';
+                <?php
+                include 'barra.php';
                 ?>
                 <!--menu horizontal termina-->
 
@@ -54,8 +52,8 @@ if (!isset($_SESSION['email'])) {
                 }
 
                 // Consulta SQL para obtener los datos de los pacientes visitas según el médico seleccionado
-                
-                $sql = "SELECT nombre, apellido, cedula, motivo, fecha, statuss, id_visita FROM `paciente-visitas` WHERE id_user = ?";
+
+                $sql = "SELECT nombre, propietario, cedula, motivo, fecha, statuss, id_visita FROM `paciente-visitas` WHERE id_user = ?";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("i", $medico_id);
                 $stmt->execute();
@@ -63,17 +61,17 @@ if (!isset($_SESSION['email'])) {
                 ?>
 
                 <div class="container-fluid">
-                    
-                <?php
+
+                    <?php
 
                     // Obtener el rol y el nombre completo desde la sesión y la base de datos
                     $role = $_SESSION['role'];
                     // Determinar el prefijo basado en el rol
                     $prefix = '';
                     if ($role == 'medico') {
-                    $prefix = 'Dr. ';
+                        $prefix = 'Dr. ';
                     } elseif ($role == 'secretaria') {
-                    $prefix = 'Sria. ';
+                        $prefix = 'Sria. ';
                     }
                     ?>
 
@@ -81,8 +79,8 @@ if (!isset($_SESSION['email'])) {
 
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 fw-bold">Pacientes por atender <?php include 'fecha.php';
-                                                                                        echo $fecha; ?></p>
+                            <p class="m-0 fw-bold" style="color: #228B22">Pacientes por atender <?php include 'fecha.php';
+                                                                                                echo $fecha; ?></p>
                         </div>
                         <?php if ($_SESSION['role'] == 'secretaria') : ?>
                             <div class="card-body">
@@ -117,63 +115,62 @@ if (!isset($_SESSION['email'])) {
                                                 <select id="paciente_id" name="medico" class="form-select">
                                                     <option>Selecciona Médico</option>
 
-                 <?php
-                    include 'conexion.php';
-                    $us_id = $_SESSION['id'];
-                    $sql_clin = "SELECT clinica FROM users WHERE id_user = ?"; // Ajusta la consulta según la estructura de tu base de datos
-                    $stmt_clin = $conn->prepare($sql_clin);
-                    $stmt_clin->bind_param("i", $us_id);
-                    $stmt_clin->execute();
-                    $stmt_clin->bind_result($clinics);
-                    $stmt_clin->fetch();
+                                                    <?php
+                                                    include 'conexion.php';
+                                                    $us_id = $_SESSION['id'];
+                                                    $sql_clin = "SELECT clinica FROM users WHERE id_user = ?"; // Ajusta la consulta según la estructura de tu base de datos
+                                                    $stmt_clin = $conn->prepare($sql_clin);
+                                                    $stmt_clin->bind_param("i", $us_id);
+                                                    $stmt_clin->execute();
+                                                    $stmt_clin->bind_result($clinics);
+                                                    $stmt_clin->fetch();
 
-            
-                    $stmt_clin->close();
-                   
 
-                   
+                                                    $stmt_clin->close();
 
-                    // Utilizamos un marcador de posición en la consulta SQL
-                    $sql = "SELECT firstname, lastname, id_user FROM users WHERE rol = 'medico' AND clinica = ?";
 
-                    if ($stmt = $conn->prepare($sql)) {
-                        // Vinculamos el parámetro
-                        $stmt->bind_param("s", $clinics); // "i" indica que el parámetro es un entero
-                        
-                        // Ejecutamos la consulta
-                        $stmt->execute();
-                        
-                        // Vinculamos las variables de resultado
-                        $stmt->bind_result($doctores, $apellido, $id);
-                        
-                        // Iteramos sobre los resultados
-                        while ($stmt->fetch()) {
-                            echo "<option value=\"$id\"> $doctores $apellido ($id)</option>";
-                        }
-                        
-                        // Cerramos la declaración
-                        $stmt->close();
-                    } else {
-                        // Manejo de errores en caso de que la declaración no se prepare correctamente
-                        echo "Error en la preparación de la declaración: " . $conn->error;
-                    }
-                    ?>
+
+
+                                                    // Utilizamos un marcador de posición en la consulta SQL
+                                                    $sql = "SELECT firstname, lastname, id_user FROM users WHERE rol = 'medico' AND clinica = ?";
+
+                                                    if ($stmt = $conn->prepare($sql)) {
+                                                        // Vinculamos el parámetro
+                                                        $stmt->bind_param("s", $clinics); // "i" indica que el parámetro es un entero
+
+                                                        // Ejecutamos la consulta
+                                                        $stmt->execute();
+
+                                                        // Vinculamos las variables de resultado
+                                                        $stmt->bind_result($doctores, $apellido, $id);
+
+                                                        // Iteramos sobre los resultados
+                                                        while ($stmt->fetch()) {
+                                                            echo "<option value=\"$id\"> $doctores $apellido ($id)</option>";
+                                                        }
+
+                                                        // Cerramos la declaración
+                                                        $stmt->close();
+                                                    } else {
+                                                        // Manejo de errores en caso de que la declaración no se prepare correctamente
+                                                        echo "Error en la preparación de la declaración: " . $conn->error;
+                                                    }
+                                                    ?>
 
                                                 </select>
-                                                <button type="submit" class="btn btn-primary">Ver</button>
+                                                <button type="submit" class="btn" style="background-color: #228B22; color: white;">Ver</button>
                                             </form>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                                     <table class="table my-0" id="dataTable">
                                         <thead>
                                             <tr>
-                                                
+
                                                 <th>Nombre</th>
-                                                <th>Apellido</th>
-                                                <th>Cédula</th>
+                                                <th>Propietario</th>
                                                 <th>Fecha</th>
                                             </tr>
                                         </thead>
@@ -184,9 +181,9 @@ if (!isset($_SESSION['email'])) {
                                                 // muestra los datos de la bd
                                                 while ($row = $result->fetch_assoc()) {
                                                     if ($row["statuss"] == 0) {
-                                                       
-                                                        echo "<td>" . $row["nombre"] . "</td><td>" . $row["apellido"] . "</td><td>" . $row["cedula"] . "</td><td>" . $row["fecha"] . "</td>";
-                                                        
+
+                                                        echo "<td>" . $row["nombre"] . "</td><td>" . $row["propietario"] . "</td><td>" . $row["fecha"] . "</td>";
+
                                                         echo "</tr>";
                                                     }
                                                 }
@@ -200,15 +197,14 @@ if (!isset($_SESSION['email'])) {
                                 </div>
                             </div>
                         <?php elseif ($_SESSION['role'] == 'medico') : ?>
-                            
+
                             <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                                 <table class="table my-0" id="dataTable">
                                     <thead>
                                         <tr>
                                             <th>Status</th>
                                             <th>Nombre</th>
-                                            <th>Apellido</th>
-                                            <th>Cédula</th>
+                                            <th>Propietario</th>
                                             <th>Motivo</th>
                                             <th>Fecha</th>
                                         </tr>
@@ -220,9 +216,9 @@ if (!isset($_SESSION['email'])) {
                                             // muestra los datos de la bd
                                             while ($row = $result->fetch_assoc()) {
                                                 if ($row["statuss"] == 0) {
-                                                    echo '<tr><td><a href="pacienteAtendido.php?cedula=' . $row["cedula"] . '" class="btn btn-primary btn-sm">Atendido</a></td>';
-                                                    echo "<td>" . $row["nombre"] . "</td><td>" . $row["apellido"] . "</td><td>" . $row["cedula"] . "</td><td>" . $row["motivo"] . "</td><td>" . $row["fecha"] . "</td>";
-                                                    echo '<td><a href="tableGeneral.php?cedula=' . $row["cedula"] . '&id_visita=' . $row["id_visita"] . '" class="btn btn-primary btn-sm">Ver Expediente</a></td>';
+                                                    echo '<tr><td><a href="pacienteAtendido.php?id_paciente=' . $row["id_paciente"] . '" class="btn btn-primary btn-sm">Atendido</a></td>';
+                                                    echo "<td>" . $row["nombre"] . "</td><td>" . $row["propietario"] . "</td><td>" . $row["motivo"] . "</td><td>" . $row["fecha"] . "</td>";
+                                                    echo '<td><a href="tableGeneral.php?id_paciente=' . $row["id_paciente"] . '&id_visita=' . $row["id_visita"] . '" class="btn btn-primary btn-sm">Ver Expediente</a></td>';
                                                     echo "</tr>";
                                                 }
                                             }
